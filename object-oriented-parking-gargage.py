@@ -76,6 +76,8 @@ def main():
 
 main()
 
+
+#Test
 # garage1 = Parking_garage(10,10)
 # garage1.takeTicket('9zpo')
 # garage1.takeTicket('912')
