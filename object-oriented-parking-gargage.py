@@ -8,8 +8,9 @@ class Parking_garage():
         self.tickets -= 1
         self.parkingSpaces -= 1
         self.currentTicket[license_plate] = False
+        print(f'Car licensed: {license_plate} just took a ticket')
 
-    def payForParking(self, license_plate, amount):
+    def payForParking(self, license_plate):
         print(f'{license_plate} has not paid for the ticket yet. The total amount is $10')
         while True:
             amount = int(input('Insert card or cash to pay for the ticket: Amount: '))
@@ -33,20 +34,24 @@ class Parking_garage():
                     self.currentTicket[license_plate] = True
                     break
     
-    def show_parkingSpaces(self):
+    def show_history(self):
         print('History of the garage on this day: ')
         for k,v in self.currentTicket.items():
             print(f'License plate: {k}: paid?: {v}')
+    
+    def check_spaces(self):
         print(f'Currently, the garage has {self.parkingSpaces} open spaces ')
 
 garage1 = Parking_garage(10,10)
 garage1.takeTicket('9zpo')
 garage1.takeTicket('912')
+garage1.check_spaces()
 garage1.leaveGarage('9zpo')
 garage1.takeTicket('9890')
-garage1.payForParking('912', 10)
+garage1.payForParking('912')
 garage1.leaveGarage('912')
-garage1.show_parkingSpaces()
+garage1.show_history()
+garage1.check_spaces()
 
 
             
